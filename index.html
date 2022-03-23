@@ -26,21 +26,22 @@
       </h3>
       <form id="addItem">
         <input id='inputItemName' type="text" name="inputItemName" placeholder="Feed the cat" />
-        <input id='inputItemQuantity' type="number" name="inputItemQuantity" value='1' title="Quantity for the item" />
-        <button class="submit" id="buttonAddItem">Add to list</button>
+        <input id='inputItemQuantity' type="number" name="inputItemQuantity" value='1' min="1"
+          title="Quantity for the item" />
+        <button type='button' class="submit" id="buttonAddItem">Add to list</button>
       </form>
     </div>
     <div class="box">
       <div class="list">
         <div class="listItem">
-          <input type="checkbox" title='Mark as done'>
+          <input type="checkbox" title='Mark as done' checked>
           <h4>Do laundry</h4>
-          <button class="delete">Delete item</button>
+          <button type='button' class="delete" disabled>Delete item</button>
         </div>
         <div class="listItem">
           <input type="checkbox" title='Mark as done'>
           <h4>Practice yoga</h4>
-          <button class="delete">Delete item</button>
+          <button type='button' class="delete" disabled>Delete item</button>
         </div>
       </div>
     </div>

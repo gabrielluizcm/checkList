@@ -43,6 +43,9 @@
   font-size: 1.5vh;
   font-weight: bold;
 }
+* body .box button:hover {
+  cursor: pointer;
+}
 * body .box form {
   display: inline-flex;
   justify-content: space-between;
@@ -81,8 +84,20 @@
   margin: 0;
   margin-right: 5px;
 }
+* body .box .list .listItem .line-through {
+  text-decoration: line-through;
+}
 * body .box .list .listItem .delete {
   background-color: #500;
+}
+* body .box .list .listItem .delete:disabled {
+  background-color: #533;
+  color: grey;
+  cursor: not-allowed;
+  opacity: 0.7;
+}
+* body .hidden {
+  display: none;
 }
 
 /*# sourceMappingURL=index.css.map */
