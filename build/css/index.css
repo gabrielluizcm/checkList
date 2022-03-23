@@ -1,0 +1,88 @@
+* {
+  font-family: "Roboto", sans-serif;
+  color: black;
+  margin: 0 auto;
+  position: relative;
+  text-align: center;
+}
+* body {
+  background-color: #20044e;
+  font-size: 1vh;
+}
+* body header {
+  margin-top: 5%;
+}
+* body h1 {
+  font-size: 5vh;
+}
+* body h3 {
+  font-size: 2.5vh;
+}
+* body h3 p {
+  text-align: left;
+  margin-bottom: 10px;
+}
+* body h4 {
+  font-size: 2vh;
+}
+* body .box {
+  border-radius: 5px;
+  background-color: #351070;
+  width: 85%;
+  margin-top: 3vh;
+  padding: 2vh 1vh;
+}
+* body .box:nth-of-type(2) {
+  margin-top: 4vh;
+}
+* body .box input,
+* body .box button {
+  border: solid 1px black;
+  border-radius: 5px;
+  background-color: #ae90df;
+  font-size: 1.5vh;
+  font-weight: bold;
+}
+* body .box form {
+  display: inline-flex;
+  justify-content: space-between;
+  width: 100%;
+}
+* body .box form * {
+  margin: 0;
+}
+* body .box form #inputItemName {
+  width: 60%;
+}
+* body .box form #inputItemQuantity {
+  width: 10%;
+}
+* body .box form .submit {
+  background-color: #0c790c;
+  width: 30%;
+}
+* body .box .list {
+  display: flex;
+  flex-direction: column;
+  text-align: left;
+}
+* body .box .list .listItem {
+  display: inline-flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: flex-start;
+  width: 100%;
+  margin-top: 10px;
+}
+* body .box .list .listItem:first-of-type {
+  margin-top: 0;
+}
+* body .box .list .listItem * {
+  margin: 0;
+  margin-right: 5px;
+}
+* body .box .list .listItem .delete {
+  background-color: #500;
+}
+
+/*# sourceMappingURL=index.css.map */

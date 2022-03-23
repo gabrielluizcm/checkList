@@ -1,0 +1,115 @@
+$bodyFont: 1vh;
+$h1Font: 5vh;
+$h3Font: 2.5vh;
+$h4Font: 2vh;
+$inputFont: 1.5vh;
+
+@media (min-width: 600px) {
+  // Query for pc sizes
+}
+
+* {
+  font-family: "Roboto", sans-serif;
+  color: black;
+  margin: 0 auto;
+  position: relative;
+  text-align: center;
+
+  body {
+    background-color: #20044e;
+    font-size: $bodyFont;
+
+    header {
+      margin-top: 5%;
+    }
+
+    h1 {
+      font-size: $h1Font;
+    }
+
+    h3 {
+      font-size: $h3Font;
+
+      p {
+        text-align: left;
+        margin-bottom: 10px;
+      }
+    }
+
+    h4 {
+      font-size: $h4Font;
+    }
+
+    .box {
+      border-radius: 5px;
+      background-color: #351070;
+      width: 85%;
+      margin-top: 3vh;
+      padding: 2vh 1vh;
+
+      &:nth-of-type(2) {
+        margin-top: 4vh;
+      }
+
+      input,
+      button {
+        border: solid 1px black;
+        border-radius: 5px;
+        background-color: #ae90df;
+        font-size: $inputFont;
+        font-weight: bold;
+      }
+
+      form {
+        display: inline-flex;
+        justify-content: space-between;
+        width: 100%;
+
+        * {
+          margin: 0;
+        }
+
+        #inputItemName {
+          width: 60%;
+        }
+
+        #inputItemQuantity {
+          width: 10%;
+        }
+
+        .submit {
+          background-color: #0c790c;
+          width: 30%;
+        }
+      }
+
+      .list {
+        display: flex;
+        flex-direction: column;
+        text-align: left;
+
+        .listItem {
+          display: inline-flex;
+          flex-direction: row;
+          align-items: center;
+          justify-content: flex-start;
+          width: 100%;
+          margin-top: 10px;
+
+          &:first-of-type {
+            margin-top: 0;
+          }
+
+          * {
+            margin: 0;
+            margin-right: 5px;
+          }
+
+          .delete {
+            background-color: #500;
+          }
+        }
+      }
+    }
+  }
+}
