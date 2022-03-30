@@ -5,26 +5,33 @@
   position: relative;
   text-align: center;
 }
+
 * body {
   background-color: #20044e;
   font-size: 1vh;
 }
+
 * body header {
   margin-top: 5%;
 }
+
 * body h1 {
   font-size: 5vh;
 }
+
 * body h3 {
   font-size: 2.5vh;
 }
+
 * body h3 p {
   text-align: left;
   margin-bottom: 10px;
 }
+
 * body h4 {
   font-size: 2vh;
 }
+
 * body .box {
   border-radius: 5px;
   background-color: #351070;
@@ -32,9 +39,11 @@
   margin-top: 3vh;
   padding: 2vh 1vh;
 }
+
 * body .box:nth-of-type(2) {
   margin-top: 4vh;
 }
+
 * body .box input,
 * body .box button {
   border: solid 1px black;
@@ -43,61 +52,96 @@
   font-size: 1.5vh;
   font-weight: bold;
 }
+
 * body .box button:hover {
   cursor: pointer;
 }
+
 * body .box form {
+  display: -webkit-inline-box;
+  display: -ms-inline-flexbox;
   display: inline-flex;
-  justify-content: space-between;
+  -webkit-box-pack: justify;
+      -ms-flex-pack: justify;
+          justify-content: space-between;
   width: 100%;
 }
+
 * body .box form * {
   margin: 0;
 }
+
 * body .box form #inputItemName {
   width: 60%;
 }
+
 * body .box form #inputItemQuantity {
   width: 10%;
 }
+
 * body .box form .submit {
   background-color: #0c790c;
   width: 30%;
 }
+
 * body .box .list {
+  display: -webkit-box;
+  display: -ms-flexbox;
   display: flex;
-  flex-direction: column;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
   text-align: left;
 }
+
 * body .box .list .listItem {
+  display: -webkit-inline-box;
+  display: -ms-inline-flexbox;
   display: inline-flex;
-  flex-direction: row;
-  align-items: center;
-  justify-content: flex-start;
+  -webkit-box-orient: horizontal;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: row;
+          flex-direction: row;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  -webkit-box-pack: start;
+      -ms-flex-pack: start;
+          justify-content: flex-start;
   width: 100%;
   margin-top: 10px;
 }
+
 * body .box .list .listItem:first-of-type {
   margin-top: 0;
 }
+
 * body .box .list .listItem * {
   margin: 0;
   margin-right: 5px;
 }
+
+* body .box .list .listItem span {
+  font-size: 1.5vh;
+}
+
 * body .box .list .listItem .line-through {
   text-decoration: line-through;
 }
+
 * body .box .list .listItem .delete {
   background-color: #500;
 }
+
 * body .box .list .listItem .delete:disabled {
   background-color: #533;
   color: grey;
   cursor: not-allowed;
   opacity: 0.7;
 }
+
 * body .hidden {
   display: none;
 }
-
 /*# sourceMappingURL=index.css.map */

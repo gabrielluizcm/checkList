@@ -7,7 +7,7 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>CheckList</title>
   <script type="text/javascript" src="src/js/index.js"></script>
-  <link rel="stylesheet" href="build/css/index.css">
+  <link rel="stylesheet" href="src/scss/index.css">
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@300&display=swap" rel="stylesheet">
@@ -35,13 +35,13 @@
       <div class="list">
         <div class="listItem">
           <input type="checkbox" title='Mark as done' checked>
-          <h4>Do laundry</h4>
-          <button type='button' class="delete" disabled>Delete item</button>
+          <h4>Do laundry <span>x1</span></h4>
+          <button type='button' class="delete" disabled='disabled'>Delete item</button>
         </div>
         <div class="listItem">
           <input type="checkbox" title='Mark as done'>
-          <h4>Practice yoga</h4>
-          <button type='button' class="delete" disabled>Delete item</button>
+          <h4>Buy tomatoes <span>x3</span></h4>
+          <button type='button' class="delete" disabled='disabled'>Delete item</button>
         </div>
       </div>
     </div>

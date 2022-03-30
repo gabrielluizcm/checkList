@@ -109,6 +109,10 @@ $inputFont: 1.5vh;
             margin-right: 5px;
           }
 
+          span {
+            font-size: $inputFont;
+          }
+
           .line-through {
             text-decoration: line-through;
           }
