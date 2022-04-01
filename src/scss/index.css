@@ -68,7 +68,7 @@
 }
 
 * body .box form * {
-  margin: 0;
+  margin: 0 2px;
 }
 
 * body .box form #inputItemName {

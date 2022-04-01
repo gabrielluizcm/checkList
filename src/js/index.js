@@ -45,6 +45,8 @@
       checkbox.nextElementSibling.classList.add('line-through');
     else
       checkbox.nextElementSibling.classList.remove('line-through');
+
+    saveListToStorage();
   }
 
   function addListItem() {
@@ -62,8 +64,10 @@
     const li = document.createElement('li');
     li.setAttribute('class', 'listItem');
 
-    li.innerHTML = createListItem(itemName, itemQuantity);
+    li.innerHTML = createListItem(false, itemName, itemQuantity);
 
+    li.children[0].addEventListener('change',
+      clickEvent => markCheckBox(clickEvent.target))
     li.children[2].addEventListener('click',
       clickEvent => deleteListItem(clickEvent.target.parentElement));
 
@@ -83,7 +87,7 @@
     const li = document.createElement('li');
     li.setAttribute('class', 'listItem');
 
-    li.innerHTML = createListItem(listItem[0], listItem[1]);
+    li.innerHTML = createListItem(listItem[0], listItem[1], listItem[2]);
 
     list.append(li);
   }
@@ -93,10 +97,9 @@
     const storageList = [];
 
     listItems.forEach(item => {
-      const raw = item.children[1].innerHTML;
-      const [text, quantity] = getCleanItem(raw);
+      const [marked, text, quantity] = getCleanItem(item);
 
-      storageList.push(JSON.stringify([text, quantity]));
+      storageList.push(JSON.stringify([marked, text, quantity]));
     })
 
     localStorage.setItem('list', JSON.stringify(storageList));
@@ -104,24 +107,24 @@
 
   function deleteListItem(listItem) {
     if (window.confirm('Are you sure you want to delete this?')) {
-      const list = document.querySelector('.list');
-
       listItem.remove();
-
       saveListToStorage();
     }
   }
 
-  function createListItem(text, quantity) {
-    return `<input type='checkbox' title='Mark as done' />
+  function createListItem(marked, text, quantity) {
+    return `
+    <input type='checkbox' title='Mark as done' ${marked ? 'checked' : ''} />
     <h4>${text} <span>x${quantity}</span></h4>
     <button class='delete' type='button'>
       Delete item
     </button>`;
   }
 
-  function getCleanItem(html) {
+  function getCleanItem(item) {
+    const html = item.children[1].innerHTML
     return [
+      item.children[0].checked,
       html.split('<span>')[0].trim(),
       html.split('<span>')[1].split('</span>')[0].replace('x', '')
     ];
