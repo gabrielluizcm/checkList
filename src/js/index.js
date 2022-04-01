@@ -26,12 +26,15 @@
       checkboxes.forEach(checkbox => {
         markCheckBox(checkbox);
         checkbox.addEventListener('change', () => markCheckBox(checkbox));
-      })
+      });
 
     })();
 
     document.querySelector('#buttonAddItem').
       addEventListener('click', addListItem);
+    document.querySelector('#inputItemName').addEventListener('keypress', e => {
+      if (e.keyCode === 13) addListItem();
+    });
     document.querySelectorAll('.delete').forEach(deleteButton =>
       deleteButton.addEventListener('click',
         clickEvent => deleteListItem(clickEvent.path[1])));
@@ -45,8 +48,10 @@
   }
 
   function addListItem() {
-    const itemName = document.querySelector('#inputItemName').value.trim();
-    const itemQuantity = document.querySelector('#inputItemQuantity').value;
+    const itemInputName = document.querySelector('#inputItemName');
+    const itemInputQuantity = document.querySelector('#inputItemQuantity');
+    const itemName = itemInputName.value.trim();
+    const itemQuantity = itemInputQuantity.value;
     const list = document.querySelector('.list');
 
     if (itemName === '') {
@@ -54,25 +59,24 @@
       return;
     }
 
-    const div = document.createElement('div');
-    div.setAttribute('class', 'listItem');
+    const li = document.createElement('li');
+    li.setAttribute('class', 'listItem');
 
-    div.innerHTML =
-      `<input type='checkbox' title='Mark as done' />
-      <h4>${itemName} <span>x${itemQuantity}</span></h4>
-      <button class='delete' type='button'>
-        Delete item
-      </button>`;
+    li.innerHTML = createListItem(itemName, itemQuantity);
 
-    div.children[2].addEventListener('click', clickEvent => deleteListItem(clickEvent.path[1]))
+    li.children[2].addEventListener('click', clickEvent => deleteListItem(clickEvent.path[1]));
 
-    list.append(div);
+    list.append(li);
     list.parentElement.classList.remove('hidden');
 
     let storageList = JSON.parse(localStorage.getItem('list')) ?? [];
-    storageList.push(`${itemName} <x${itemQuantity}`);
+    storageList.push(`${itemName} <${itemQuantity}`);
     console.log(storageList);
     localStorage.setItem('list', JSON.stringify(storageList));
+
+    itemInputName.value = '';
+    itemInputQuantity.value = 1;
+    itemInputName.focus();
   }
 
   function addListItemFromStorage(listItem) {
@@ -80,24 +84,19 @@
     const itemText = listItem.split('<')[0];
     const itemQuantity = listItem.split('<')[1];
 
-    const div = document.createElement('div');
-    div.setAttribute('class', 'listItem');
+    const li = document.createElement('li');
+    li.setAttribute('class', 'listItem');
 
-    div.innerHTML =
-      `<input type='checkbox' title='Mark as done' />
-      <h4>${itemText} <span>${itemQuantity}</span></h4>
-      <button class='delete' type='button'>
-        Delete item
-      </button>`;
+    li.innerHTML = createListItem(itemText, itemQuantity);
 
-    list.append(div);
+    list.append(li);
   }
 
   function deleteListItem(listItem) {
     if (window.confirm('Are you sure you want to delete this?')) {
       const list = document.querySelector('.list');
 
-      listItem.remove()
+      listItem.remove();
 
       let storageList = JSON.parse(localStorage.getItem('list'));
       const itemIndex = storageList.indexOf(listItem.children[1].innerHtml);
@@ -109,5 +108,13 @@
       else
         list.parentElement.classList.remove('hidden');
     }
+  }
+
+  function createListItem(text, quantity) {
+    return `<input type='checkbox' title='Mark as done' />
+    <h4>${text} <span>x${quantity}</span></h4>
+    <button class='delete' type='button'>
+      Delete item
+    </button>`;
   }
 })();

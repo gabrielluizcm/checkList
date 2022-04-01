@@ -90,6 +90,7 @@ $inputFont: 1.5vh;
       .list {
         display: flex;
         flex-direction: column;
+        padding-left: 0;
         text-align: left;
 
         .listItem {
@@ -99,6 +100,7 @@ $inputFont: 1.5vh;
           justify-content: flex-start;
           width: 100%;
           margin-top: 10px;
+          list-style: none;
 
           &:first-of-type {
             margin-top: 0;
