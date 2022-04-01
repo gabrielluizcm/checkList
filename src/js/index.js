@@ -3,12 +3,12 @@
 
   function load() {
 
-    // localStorage.clear();
     (function () {
       const storageList = JSON.parse(localStorage.getItem('list'));
 
       if (storageList)
-        storageList.forEach(listItem => addListItemFromStorage(listItem));
+        storageList.forEach(
+          listItem => addListItemFromStorage(JSON.parse(listItem)));
     })();
 
     (function () {
@@ -37,7 +37,7 @@
     });
     document.querySelectorAll('.delete').forEach(deleteButton =>
       deleteButton.addEventListener('click',
-        clickEvent => deleteListItem(clickEvent.path[1])));
+        clickEvent => deleteListItem(clickEvent.target.parentElement)));
   }
 
   function markCheckBox(checkbox) {
@@ -64,15 +64,13 @@
 
     li.innerHTML = createListItem(itemName, itemQuantity);
 
-    li.children[2].addEventListener('click', clickEvent => deleteListItem(clickEvent.path[1]));
+    li.children[2].addEventListener('click',
+      clickEvent => deleteListItem(clickEvent.target.parentElement));
 
     list.append(li);
     list.parentElement.classList.remove('hidden');
 
-    let storageList = JSON.parse(localStorage.getItem('list')) ?? [];
-    storageList.push(`${itemName} <${itemQuantity}`);
-    console.log(storageList);
-    localStorage.setItem('list', JSON.stringify(storageList));
+    saveListToStorage();
 
     itemInputName.value = '';
     itemInputQuantity.value = 1;
@@ -81,15 +79,27 @@
 
   function addListItemFromStorage(listItem) {
     const list = document.querySelector('.list');
-    const itemText = listItem.split('<')[0];
-    const itemQuantity = listItem.split('<')[1];
 
     const li = document.createElement('li');
     li.setAttribute('class', 'listItem');
 
-    li.innerHTML = createListItem(itemText, itemQuantity);
+    li.innerHTML = createListItem(listItem[0], listItem[1]);
 
     list.append(li);
+  }
+
+  function saveListToStorage() {
+    const listItems = document.querySelectorAll('.listItem');
+    const storageList = [];
+
+    listItems.forEach(item => {
+      const raw = item.children[1].innerHTML;
+      const [text, quantity] = getCleanItem(raw);
+
+      storageList.push(JSON.stringify([text, quantity]));
+    })
+
+    localStorage.setItem('list', JSON.stringify(storageList));
   }
 
   function deleteListItem(listItem) {
@@ -98,15 +108,7 @@
 
       listItem.remove();
 
-      let storageList = JSON.parse(localStorage.getItem('list'));
-      const itemIndex = storageList.indexOf(listItem.children[1].innerHtml);
-      storageList.splice(itemIndex, 1)
-      localStorage.setItem('list', JSON.stringify(storageList));
-
-      if (list.childElementCount === 0)
-        list.parentElement.classList.add('hidden');
-      else
-        list.parentElement.classList.remove('hidden');
+      saveListToStorage();
     }
   }
 
@@ -117,4 +119,12 @@
       Delete item
     </button>`;
   }
+
+  function getCleanItem(html) {
+    return [
+      html.split('<span>')[0].trim(),
+      html.split('<span>')[1].split('</span>')[0].replace('x', '')
+    ];
+  }
+
 })();
