@@ -1,3 +1,8 @@
+html,
+body {
+  height: 100%;
+}
+
 * {
   font-family: "Roboto", sans-serif;
   color: black;
@@ -145,5 +150,111 @@
 
 * body .hidden {
   display: none;
+}
+
+* body .transparent {
+  opacity: 0;
+}
+
+* body footer {
+  position: absolute;
+  bottom: 0;
+  padding-bottom: 20px;
+  width: 100%;
+}
+
+* body footer .hamburguerDiv {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: horizontal;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: row;
+          flex-direction: row;
+  -webkit-box-pack: stretch;
+      -ms-flex-pack: stretch;
+          justify-content: stretch;
+}
+
+* body footer .hamburguerDiv .hamburguerItems {
+  border: solid 1px black;
+  border-radius: 10px;
+  background-color: #500;
+  -ms-flex-negative: 0;
+      flex-shrink: 0;
+  font-size: 1.5vh;
+  font-weight: bold;
+  width: 40vw;
+}
+
+* body footer button {
+  background: transparent;
+  border: 0;
+  -webkit-box-shadow: 0;
+          box-shadow: 0;
+  cursor: pointer;
+}
+
+* body footer button:hover {
+  -webkit-transform: scale(1.1);
+          transform: scale(1.1);
+}
+
+* body footer img {
+  width: 30px;
+  height: 30px;
+  pointer-events: none;
+}
+
+.fade-in {
+  animation: fadeIn 0.5s;
+  -webkit-animation: fadeIn 0.5s;
+  -moz-animation: fadeIn 0.5s;
+  -o-animation: fadeIn 0.5s;
+  -ms-animation: fadeIn 0.5s;
+}
+
+.fade-out {
+  animation: fadeOut 0.5s;
+  -webkit-animation: fadeOut 0.5s;
+  -moz-animation: fadeOut 0.5s;
+  -o-animation: fadeOut 0.5s;
+  -ms-animation: fadeOut 0.5s;
+}
+
+@keyframes fadeIn {
+  0% {
+    opacity: 0;
+  }
+  100% {
+    opacity: 1;
+  }
+}
+
+@-webkit-keyframes fadeIn {
+  0% {
+    opacity: 0;
+  }
+  100% {
+    opacity: 1;
+  }
+}
+
+@keyframes fadeOut {
+  0% {
+    opacity: 1;
+  }
+  100% {
+    opacity: 0;
+  }
+}
+
+@-webkit-keyframes fadeOut {
+  0% {
+    opacity: 1;
+  }
+  100% {
+    opacity: 0;
+  }
 }
 /*# sourceMappingURL=index.css.map */
