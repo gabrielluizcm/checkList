@@ -57,53 +57,38 @@
     const div = document.createElement('div');
     div.setAttribute('class', 'listItem');
 
-    const checkbox = document.createElement('input');
-    checkbox.setAttribute('type', 'checkbox');
-    checkbox.setAttribute('title', 'Mark as done');
+    div.innerHTML =
+      `<input type='checkbox' title='Mark as done' />
+      <h4>${itemName} <span>x${itemQuantity}</span></h4>
+      <button class='delete' type='button'>
+        Delete item
+      </button>`;
 
-    const itemHtml = document.createElement('h4');
-    const itemQuantityHtml = document.createElement('span');
-    const button = document.createElement('button');
-    button.classList.add('delete');
-    button.setAttribute('type', 'button');
-    button.innerText = 'Delete item';
-    button.addEventListener('click', clickEvent => deleteListItem(clickEvent.path[1]))
-
-    itemQuantityHtml.append(` x${itemQuantity}`);
-    itemHtml.append(itemName, itemQuantityHtml);
-    div.append(checkbox, itemHtml, button);
+    div.children[2].addEventListener('click', clickEvent => deleteListItem(clickEvent.path[1]))
 
     list.append(div);
     list.parentElement.classList.remove('hidden');
 
     let storageList = JSON.parse(localStorage.getItem('list')) ?? [];
-    storageList.push(itemHtml.innerHTML);
+    storageList.push(`${itemName} <x${itemQuantity}`);
     console.log(storageList);
     localStorage.setItem('list', JSON.stringify(storageList));
   }
 
   function addListItemFromStorage(listItem) {
     const list = document.querySelector('.list');
-    const itemText = listItem.split('<', 1);
-    const itemQuantity = listItem.split('<')[1].replace('span>', '');
+    const itemText = listItem.split('<')[0];
+    const itemQuantity = listItem.split('<')[1];
 
     const div = document.createElement('div');
     div.setAttribute('class', 'listItem');
 
-    const checkbox = document.createElement('input');
-    checkbox.setAttribute('type', 'checkbox');
-    checkbox.setAttribute('title', 'Mark as done');
-
-    const itemHtml = document.createElement('h4');
-    const itemQuantityHtml = document.createElement('span');
-    const button = document.createElement('button');
-    button.classList.add('delete');
-    button.setAttribute('type', 'button');
-    button.innerText = 'Delete item';
-
-    itemQuantityHtml.append(itemQuantity);
-    itemHtml.append(itemText, itemQuantityHtml);
-    div.append(checkbox, itemHtml, button);
+    div.innerHTML =
+      `<input type='checkbox' title='Mark as done' />
+      <h4>${itemText} <span>${itemQuantity}</span></h4>
+      <button class='delete' type='button'>
+        Delete item
+      </button>`;
 
     list.append(div);
   }
