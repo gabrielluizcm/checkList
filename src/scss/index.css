@@ -5,14 +5,14 @@ body {
 
 * {
   font-family: "Roboto", sans-serif;
-  color: black;
+  color: #A12568;
   margin: 0 auto;
   position: relative;
   text-align: center;
 }
 
 * body {
-  background-color: #20044e;
+  background-color: #2A0944;
   font-size: 1vh;
 }
 
@@ -22,7 +22,7 @@ body {
 
 * body h1 {
   font-size: 5vh;
-  color: #55d;
+  color: #FEC260;
 }
 
 * body h3 {
@@ -40,7 +40,7 @@ body {
 
 * body .box {
   border-radius: 5px;
-  background-color: #351070;
+  background-color: #3B185F;
   width: 85%;
   margin-top: 3vh;
   padding: 2vh 1vh;
@@ -54,7 +54,7 @@ body {
 * body .box button {
   border: solid 1px black;
   border-radius: 5px;
-  background-color: #ae90df;
+  background-color: #FEC260;
   font-size: 1.5vh;
   font-weight: bold;
 }
@@ -86,7 +86,7 @@ body {
 }
 
 * body .box form .submit {
-  background-color: #0c790c;
+  background-color: #C2FE06;
   width: 30%;
 }
 
@@ -139,14 +139,8 @@ body {
 }
 
 * body .box .list .listItem .delete {
-  background-color: #500;
-}
-
-* body .box .list .listItem .delete:disabled {
-  background-color: #533;
-  color: grey;
-  cursor: not-allowed;
-  opacity: 0.7;
+  color: #3B185F;
+  background-color: #fe7060;
 }
 
 * body .hidden {
@@ -180,7 +174,8 @@ body {
 * body footer .hamburguerDiv .hamburguerItems {
   border: solid 1px black;
   border-radius: 10px;
-  background-color: #500;
+  background-color: #fe7060;
+  color: #3B185F;
   -ms-flex-negative: 0;
       flex-shrink: 0;
   font-size: 1.5vh;
