@@ -23,6 +23,9 @@
       checkboxes.forEach(checkbox => {
         markCheckBox(checkbox);
         checkbox.addEventListener('change', () => markCheckBox(checkbox));
+        console.log(checkbox.nextElementSibling)
+        checkbox.nextElementSibling.addEventListener('click',
+          () => markCheckBoxFromText(checkbox));
       });
 
     })();
@@ -63,6 +66,11 @@
       checkbox.nextElementSibling.classList.remove('line-through');
 
     saveListToStorage();
+  }
+
+  function markCheckBoxFromText(checkbox) {
+    checkbox.checked = !checkbox.checked;
+    markCheckBox(checkbox);
   }
 
   function addListItem() {

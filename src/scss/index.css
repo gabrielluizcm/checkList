@@ -55,7 +55,7 @@ body {
   border: solid 1px black;
   border-radius: 5px;
   background-color: #FEC260;
-  font-size: 1.5vh;
+  font-size: 1.8vh;
   font-weight: bold;
 }
 
@@ -131,7 +131,7 @@ body {
 }
 
 * body .box .list .listItem span {
-  font-size: 1.5vh;
+  font-size: 1.8vh;
 }
 
 * body .box .list .listItem .line-through {
@@ -178,7 +178,7 @@ body {
   color: #3B185F;
   -ms-flex-negative: 0;
       flex-shrink: 0;
-  font-size: 1.5vh;
+  font-size: 1.8vh;
   font-weight: bold;
   width: 40vw;
 }
