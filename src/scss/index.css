@@ -59,6 +59,10 @@ body {
   font-weight: bold;
 }
 
+* body .box input {
+  color: #2A0944;
+}
+
 * body .box button:hover {
   cursor: pointer;
 }
