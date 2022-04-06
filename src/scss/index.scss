@@ -140,9 +140,11 @@ body {
 
     .hidden {
       display: none;
+      pointer-events: none;
     }
 
     .transparent {
+      pointer-events: none;
       opacity: 0;
     }
 
@@ -203,6 +205,7 @@ body {
   -moz-animation: fadeOut $hamburguerFade;
   -o-animation: fadeOut $hamburguerFade;
   -ms-animation: fadeOut $hamburguerFade;
+  pointer-events: none;
 }
 
 @keyframes fadeIn {

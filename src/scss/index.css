@@ -149,9 +149,11 @@ body {
 
 * body .hidden {
   display: none;
+  pointer-events: none;
 }
 
 * body .transparent {
+  pointer-events: none;
   opacity: 0;
 }
 
@@ -220,6 +222,7 @@ body {
   -moz-animation: fadeOut 0.5s;
   -o-animation: fadeOut 0.5s;
   -ms-animation: fadeOut 0.5s;
+  pointer-events: none;
 }
 
 @keyframes fadeIn {
