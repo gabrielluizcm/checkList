@@ -40,12 +40,22 @@
 
   <footer>
     <div class='hamburguerDiv transparent'>
-      <button class="hamburguerItems" id='clearAll'>
-        Delete ALL items
-      </button>
-      <button class="hamburguerItems" id='clearMarked'>
-        Delete MARKED items
-      </button>
+      <div class="hamburguerColumn">
+        <button class="hamburguerItems" id="resetAll">
+          Clear <b>all</b> items
+        </button>
+        <button class="hamburguerItems" id="markAll">
+          Check <b>all</b> items
+        </button>
+      </div>
+      <div class="hamburguerColumn">
+        <button class="hamburguerItems" id='clearAll'>
+          Delete <b>all</b> items
+        </button>
+        <button class="hamburguerItems" id='clearMarked'>
+          Delete <b>marked</b> items
+        </button>
+      </div>
     </div>
     <button type='button' id='hamburguer'>
       <img src="./assets/images/hamburger.svg" alt='Hamburguer button'>

@@ -51,6 +51,12 @@
           break;
         case 'clearMarked':
           clearItems();
+          break;
+        case 'resetAll':
+          changeItems(true);
+          break;
+        case 'markAll':
+          changeItems();
       }
 
       if (targetClassList.contains('delete'))
@@ -128,7 +134,7 @@
   }
 
   function deleteListItem(listItem) {
-    if (window.confirm('Are you sure you want to delete this?')) {
+    if (window.confirm('Are you sure you want to delete this item?')) {
       const list = document.querySelector('.list');
 
       listItem.remove();
@@ -192,6 +198,32 @@
         listItems.forEach(listItem => {
           if (listItem.children[0].checked)
             listItem.remove();
+        })
+
+      saveListToStorage();
+      toggleList();
+    }
+  }
+
+  function changeItems(clear = false) {
+    const message = clear ?
+      'Are you sure you want to uncheck ALL items?' :
+      'Are you sure you want to mark ALL items as done?';
+
+    if (window.confirm(message)) {
+      const listItems = document.querySelectorAll('.listItem');
+
+      if (clear)
+        listItems.forEach(listItem => {
+          const checkbox = listItem.querySelector('input');
+          checkbox.checked = false;
+          markCheckBox(checkbox);
+        });
+      else
+        listItems.forEach(listItem => {
+          const checkbox = listItem.querySelector('input');
+          checkbox.checked = true;
+          markCheckBox(checkbox);
         })
 
       saveListToStorage();
