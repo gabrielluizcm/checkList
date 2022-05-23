@@ -17,7 +17,7 @@ body {
 }
 
 * body header {
-  margin-top: 5%;
+  padding-top: 10px;
 }
 
 * body h1 {
@@ -162,6 +162,13 @@ body {
   bottom: 0;
   padding-bottom: 20px;
   width: 100%;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
 }
 
 * body footer .hamburguerDiv {
@@ -175,6 +182,7 @@ body {
   -webkit-box-pack: stretch;
       -ms-flex-pack: stretch;
           justify-content: stretch;
+  width: 100%;
 }
 
 * body footer .hamburguerDiv .hamburguerColumn {
@@ -226,6 +234,11 @@ body {
   width: 30px;
   height: 30px;
   pointer-events: none;
+}
+
+* body footer #cc {
+  font-size: 1.5vh;
+  margin-top: 10px;
 }
 
 .fade-in {
