@@ -10,34 +10,31 @@ body {
   position: relative;
   text-align: center;
 }
-
 * body {
   background-color: #2A0944;
   font-size: 1vh;
 }
-
 * body header {
   padding-top: 10px;
 }
-
+* body main {
+  overflow: overlay;
+  height: 80%;
+}
 * body h1 {
   font-size: 5vh;
   color: #FEC260;
 }
-
 * body h3 {
   font-size: 2.5vh;
 }
-
 * body h3 p {
   text-align: left;
   margin-bottom: 10px;
 }
-
 * body h4 {
   font-size: 2vh;
 }
-
 * body .box {
   border-radius: 5px;
   background-color: #3B185F;
@@ -45,11 +42,9 @@ body {
   margin-top: 3vh;
   padding: 2vh 1vh;
 }
-
 * body .box:nth-of-type(2) {
   margin-top: 4vh;
 }
-
 * body .box input,
 * body .box button {
   border: solid 1px black;
@@ -58,184 +53,120 @@ body {
   font-size: 1.8vh;
   font-weight: bold;
 }
-
 * body .box input {
   color: #2A0944;
 }
-
 * body .box button:hover {
   cursor: pointer;
 }
-
 * body .box form {
-  display: -webkit-inline-box;
-  display: -ms-inline-flexbox;
   display: inline-flex;
-  -webkit-box-pack: justify;
-      -ms-flex-pack: justify;
-          justify-content: space-between;
+  justify-content: space-between;
   width: 100%;
 }
-
 * body .box form * {
   margin: 0 2px;
 }
-
 * body .box form #inputItemName {
   width: 60%;
 }
-
 * body .box form #inputItemQuantity {
   width: 10%;
 }
-
 * body .box form .submit {
   background-color: #C2FE06;
   width: 30%;
 }
-
 * body .box .list {
-  display: -webkit-box;
-  display: -ms-flexbox;
   display: flex;
-  -webkit-box-orient: vertical;
-  -webkit-box-direction: normal;
-      -ms-flex-direction: column;
-          flex-direction: column;
+  flex-direction: column;
   padding-left: 0;
   text-align: left;
 }
-
 * body .box .list .listItem {
-  display: -webkit-inline-box;
-  display: -ms-inline-flexbox;
   display: inline-flex;
-  -webkit-box-orient: horizontal;
-  -webkit-box-direction: normal;
-      -ms-flex-direction: row;
-          flex-direction: row;
-  -webkit-box-align: center;
-      -ms-flex-align: center;
-          align-items: center;
-  -webkit-box-pack: start;
-      -ms-flex-pack: start;
-          justify-content: flex-start;
+  flex-direction: row;
+  align-items: center;
+  justify-content: flex-start;
   width: 100%;
   margin-top: 10px;
   list-style: none;
 }
-
 * body .box .list .listItem:first-of-type {
   margin-top: 0;
 }
-
 * body .box .list .listItem * {
   margin: 0;
   margin-right: 5px;
 }
-
 * body .box .list .listItem span {
   font-size: 1.8vh;
 }
-
 * body .box .list .listItem .line-through {
   text-decoration: line-through;
 }
-
 * body .box .list .listItem .delete {
   color: #3B185F;
   background-color: #fe7060;
 }
-
 * body .hidden {
   display: none;
   pointer-events: none;
 }
-
 * body .transparent {
   pointer-events: none;
   opacity: 0;
+  display: none !important;
 }
-
 * body footer {
   position: absolute;
   bottom: 0;
-  padding-bottom: 20px;
   width: 100%;
-  display: -webkit-box;
-  display: -ms-flexbox;
   display: flex;
-  -webkit-box-orient: vertical;
-  -webkit-box-direction: normal;
-      -ms-flex-direction: column;
-          flex-direction: column;
+  flex-direction: column;
 }
-
 * body footer .hamburguerDiv {
-  display: -webkit-box;
-  display: -ms-flexbox;
   display: flex;
-  -webkit-box-orient: horizontal;
-  -webkit-box-direction: normal;
-      -ms-flex-direction: row;
-          flex-direction: row;
-  -webkit-box-pack: stretch;
-      -ms-flex-pack: stretch;
-          justify-content: stretch;
+  flex-direction: row;
+  justify-content: stretch;
   width: 100%;
 }
-
 * body footer .hamburguerDiv .hamburguerColumn {
-  display: -webkit-box;
-  display: -ms-flexbox;
   display: flex;
-  -webkit-box-orient: vertical;
-  -webkit-box-direction: normal;
-      -ms-flex-direction: column;
-          flex-direction: column;
+  flex-direction: column;
   padding: 0 20px;
 }
-
 * body footer .hamburguerDiv .hamburguerItems {
   border: solid 1px black;
   border-radius: 10px;
   background-color: #fe7060;
   color: #3B185F;
-  -ms-flex-negative: 0;
-      flex-shrink: 0;
+  flex-shrink: 0;
   font-size: 1.8vh;
   font-weight: bold;
   width: 40vw;
   margin: 5px 0;
 }
-
 * body footer .hamburguerDiv .hamburguerItems#resetAll {
   background-color: #FEC260;
 }
-
 * body footer .hamburguerDiv .hamburguerItems#markAll {
   background-color: #C2FE06;
 }
-
 * body footer button {
   background: transparent;
   border: 0;
-  -webkit-box-shadow: 0;
-          box-shadow: 0;
+  box-shadow: 0;
   cursor: pointer;
 }
-
 * body footer button:hover {
-  -webkit-transform: scale(1.1);
-          transform: scale(1.1);
+  transform: scale(1.1);
 }
-
 * body footer img {
   width: 30px;
   height: 30px;
   pointer-events: none;
 }
-
 * body footer #cc {
   font-size: 1.5vh;
   margin-top: 10px;
@@ -266,7 +197,6 @@ body {
     opacity: 1;
   }
 }
-
 @-webkit-keyframes fadeIn {
   0% {
     opacity: 0;
@@ -275,7 +205,6 @@ body {
     opacity: 1;
   }
 }
-
 @keyframes fadeOut {
   0% {
     opacity: 1;
@@ -284,7 +213,6 @@ body {
     opacity: 0;
   }
 }
-
 @-webkit-keyframes fadeOut {
   0% {
     opacity: 1;
@@ -292,5 +220,4 @@ body {
   100% {
     opacity: 0;
   }
-}
-/*# sourceMappingURL=index.css.map */
+}/*# sourceMappingURL=index.css.map */
